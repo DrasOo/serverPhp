@@ -18,19 +18,45 @@ include '../controller/CvController.php';
                 <div class="col">
                     
                 </div>
-                    <div class="col-8 bg-primary text-white p-3 rounded shadow text-start"> <!-- Centre de la page-->
-                    <h1 class="text-center">Votre cv généré</h1>
-                    <div class="col">
-                        <?php
-                        echo "<h2 class='text-end' >$name $firstName</h2>";
-                        echo "<h3 class='text-end'>Habite en $region à $city</h3>";
-                        echo "<p>$job</p>";
-                        echo "<p>$birth</p>";
-                        foreach($skills as $skill){
-                            echo $skill,",";}
-                        echo"<p>$email</p>";
-                          ?>
+                
+                    <div class="col-14 bg-primary text-white p-3 m-3 rounded shadow text-start min-vh-100 ">
+                        <h1 class="text-center mb-4">Votre cv générer</h1>
+
+                        <!-- Ligne du haut avec 2 colonnes -->
+                        <div class="row mb-3">
+                            <!-- Image à gauche -->
+                            <div class="col-4">
+                                <img src="../assets/profile.png" alt="Photo" class="img-fluid rounded ms-5" width="150" height="150">
+                            </div>
+
+                            <!-- titres à droite -->
+                            <div class="col-8 text-end">
+                                <?php
+                                echo "<h2>$name $firstName</h2>";
+                                echo "<h3>Habite en $region à $city</h3>";
+                                ?>
+                            </div>
+                        </div>
+
+                        <!-- Ligne du bas, texte-->
+                        <div class="row">
+                            <!-- texte à gauche -->
+                                <div class="col-12 text-end">
+                                    <?php
+                                    echo "<p>$job</p>";
+                                    echo "<p>$birth</p>";
+                                    echo "<p>Compétences : ";
+                                    foreach($skills as $skill){
+                                        echo $skill . ", ";
+                                    }
+                                    echo "</p>";
+                                    echo "<p>Contact : $email</p>";
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
                 <div class="col">
                     

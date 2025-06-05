@@ -1,6 +1,7 @@
 <?php
 include '../model/CvModel.php'; // récup les données du fichier CvModel.php
 
+    $nbSkills = 0;
     foreach($cv as $test) {
         $id = $test['id'];
         $name = $test['name'];

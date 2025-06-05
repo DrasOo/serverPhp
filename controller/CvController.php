@@ -1,5 +1,6 @@
 <?php
-include '../model/CvModel.php'; // récup les données du fichier CvModel.php
+require_once '../bootstrap.php';
+require_once MODEL_PATH . '/CvModel.php';
 
     $nbSkills = 0;
     foreach($cv as $test) {

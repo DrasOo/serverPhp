@@ -1,5 +1,6 @@
 <?php
-include '../controller/CvController.php';
+require_once '../bootstrap.php';
+require_once CONTROLLER_PATH . '/CvController.php';
 ?>
 
 
@@ -52,17 +53,7 @@ include '../controller/CvController.php';
                                     <?php
                                     echo "<p>".htmlspecialchars($job)."</p>";
                                     echo "<p>".htmlspecialchars($birth)."</p>";
-                                    echo "<p>Compétences : ";
-                                    foreach($skills as $skill){
-                                        $nbSkills++;
-                                        if ($nbSkills == count($skills)) {
-                                            echo htmlspecialchars($skill);
-                                        }
-                                        else {
-                                            echo htmlspecialchars($skill) . ", ";
-                                        }
-                                    }
-                                    echo "</p>";
+                                    echo "<p>Compétences : ". implode(", ", $skills)."</p>";
                                     echo "<p>Contact : ". htmlspecialchars($email)."</p>";
                                     ?>
                                 </div>

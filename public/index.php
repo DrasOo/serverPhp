@@ -1,3 +1,6 @@
+<?php
+    require_once '../bootstrap.php';
+    ?>
 <!doctype html>
 <html lang="fr">
     <head>
@@ -7,6 +10,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     </head>
     <body>
+        
         <header class="bg-dark text-white m-3 rounded-5 p-3 shadow">
             <h1 class="display-1 text-center">Bienvenue sur un générateur de CV</h1>
             <div class="container-lg">
@@ -16,10 +20,9 @@
         </header>
         <div class="text-center m-5">
             <a
-                name=""
-                id=""
+                id="btnRedirect" 
                 class="btn text-white btn-info btn-lg "
-                href="view/cv_view.php"
+                href="view\cv_view.php"
                 role="button"
             >   Redirection vers le site.
             </a>

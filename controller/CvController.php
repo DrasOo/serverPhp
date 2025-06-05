@@ -1,6 +1,6 @@
 <?php
 include '../model/CvModel.php'; // récup les données du fichier CvModel.php
-if ($cv['id']=1) {
+
     foreach($cv as $test) {
         $id = $test['id'];
         $name = $test['name'];
@@ -11,7 +11,4 @@ if ($cv['id']=1) {
         $birth = $test['birth'];
         $skills = $test['skills'];
         $email = $test['email'];
-
-}
-
-}
+    }

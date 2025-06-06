@@ -27,7 +27,7 @@ require_once CONTROLLER_PATH . '/CvController.php';
         <section class="container text-center">
             <div class="row">                
                     <div class="col-12 bg-success text-white p-3 m-3 rounded shadow text-start min-vh-100 ">
-                        <h1 class="text-center mb-4">Votre cv générer</h1>
+                        <h1 class="text-center mb-4">Votre cv généré</h1>
 
                         <!-- Ligne du haut avec 2 colonnes -->
                         <div class="row mb-3">

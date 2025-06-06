@@ -1,6 +1,6 @@
 <?php
 require_once '../bootstrap.php';
-require_once CONTROLLER_PATH . '/CvController.php';
+require_once CONTROLLER_PATH . '/CvController.php'; 
 ?>
 
 
@@ -14,7 +14,7 @@ require_once CONTROLLER_PATH . '/CvController.php';
         <link href="..\public\css\style.css" rel="stylesheet">
     </head>
     <body>
-        <header class="row ms-2 me-2 mt-2 mb-3">
+        <header class="row ms-2 me-2 mt-2 mb-3"> <!-- Bouton retour vers page accueil -->
             <a
                 id="btnRetour"
                 class="btn btn-warning "
@@ -39,6 +39,7 @@ require_once CONTROLLER_PATH . '/CvController.php';
                             <!-- titres à droite -->
                             <div class="col-8 text-end">
                                 <?php
+                                // Affichage des informations du CV et sécurisation des données avec htmlspecialchars
                                 echo "<h2>". htmlspecialchars($name)." ". htmlspecialchars($firstName). "</h2>";
                                 echo "<h3>Habite en ".htmlspecialchars($region)." à ".htmlspecialchars($city)."</h3>";
                                 ?>
@@ -50,10 +51,11 @@ require_once CONTROLLER_PATH . '/CvController.php';
                             <!-- texte à gauche -->
                                 <div class="col-12 text-end">
                                     <?php
-                                    echo "<p>".htmlspecialchars($job)."</p>";
-                                    echo "<p>".htmlspecialchars($birth)."</p>";
-                                    echo "<p>Compétences : ". implode(", ", $skills)."</p>";
-                                    echo "<p>Contact : ". htmlspecialchars($email)."</p>";
+                                    // Affichage des informations du CV et sécurisation des données avec htmlspecialchars
+                                    echo "<p><strong>Status : </strong>".htmlspecialchars($job)."</p>";
+                                    echo "<p><strong>Date de naissance : </strong>".htmlspecialchars($birth)."</p>";
+                                    echo "<p><strong>Compétences : </strong>". implode(", ", $skills)."</p>";
+                                    echo "<p><strong>Contact : </strong> ". htmlspecialchars($email)."</p>";
                                     ?>
                                 </div>
                         </div>

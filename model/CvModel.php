@@ -9,10 +9,7 @@ $cv = [             //Tableau multi
         'job' => 'Etudiant',
         'birth' => '03 juin 2005',
         'city' => 'Angers',
-        'skills' => [
-        'BDD',
-        'Web',
-        'Git'],
+        'skills' => ['PHP', 'HTML', 'CSS', 'JavaScript', 'MySQL'],
         'email' => 'enzo.martin6885@gmail.com'
     ]
     ];

@@ -11,15 +11,14 @@ require_once CONTROLLER_PATH . '/CvController.php';
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Générateur de cv</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-        <link href="style.css" rel="stylesheet">
+        <link href="..\public\css\style.css" rel="stylesheet">
     </head>
     <body>
         <header class="row ms-2 me-2 mt-2 mb-3">
             <a
-                name=""
-                id=""
+                id="btnRetour"
                 class="btn btn-warning "
-                href="../index.php"
+                href="../public/index.php"
                 role="button"
                 >Retour en arrière</a
             >

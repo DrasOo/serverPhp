@@ -1,11 +1,12 @@
 <?php
-
- 
 // Utilisé getValue pour vérifier si la variable est un tableau et retourner sa valeur ou sinon null (utilisé après dans le controller)
-function getValue(array $arr, string $key) {
+function getValue(array $arr, string $key)
+{
     return array_key_exists($key, $arr) ? $arr[$key] : null;
 }
-function getAge($birthDate) {
+
+function getAge($birthDate)
+{
     // Convertit la date de naissance en objet DateTime
     $birth = new DateTime($birthDate);
     // Obtient la date actuelle

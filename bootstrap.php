@@ -3,3 +3,4 @@
         define('MODEL_PATH', BASE_PATH . '/model');
         define('CONTROLLER_PATH', BASE_PATH . '/controller');
         define('VIEW_PATH', BASE_PATH . '/view');
+        define(constant_name: 'PUBLIC_PATH', value: BASE_PATH . '/public');

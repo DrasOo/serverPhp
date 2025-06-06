@@ -56,6 +56,7 @@ require_once CONTROLLER_PATH . '/CvController.php';
                                     echo "<p><strong>Date de naissance : </strong>".htmlspecialchars($birth)."</p>";
                                     echo "<p><strong>Compétences : </strong>". implode(", ", $skills)."</p>";
                                     echo "<p><strong>Contact : </strong> ". htmlspecialchars($email)."</p>";
+                                    echo "<p><strong>Âge : </strong>". htmlspecialchars($age) . " ans</p>";
                                     ?>
                                 </div>
                         </div>

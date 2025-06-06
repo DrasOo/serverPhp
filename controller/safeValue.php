@@ -6,7 +6,7 @@ function getValueSafe(array $tableau, string $variable, $description = '(Aucune 
     return !empty($tableau[$variable]) ? $tableau[$variable] : $description;
 }
  
-// Utilisé getValue pour récupérer la valeur d'une clé dans un tableau
+// Utilisé getValue pour vérifier si la variable est un tableau et retourner sa valeur ou sinon null (utilisé après dans le controller)
 function getValue(array $arr, string $key) {
     return array_key_exists($key, $arr) ? $arr[$key] : null;
 }

@@ -53,9 +53,22 @@ require_once CONTROLLER_PATH . '/CvController.php';
                                     <?php
                                     // Affichage des informations du CV et sécurisation des données avec htmlspecialchars
                                     echo "<p><strong>Status : </strong>".htmlspecialchars($job)."</p>";
-                                    echo "<p><strong>Date de naissance : </strong>".htmlspecialchars($birth)."</p>";
-                                    echo "<p><strong>Compétences : </strong>". implode(", ", $skills)."</p>";
-                                    echo "<p><strong>Contact : </strong> ". htmlspecialchars($email)."</p>";
+                                    echo "<p><strong>Date de naissance : </strong>".htmlspecialchars($birth)."</p>";?>
+                                    
+                                    <p><strong>Compétences :</strong> <!-- Vérification si le tableau de compétences n'est pas vide -->
+                                        <?php if (!empty($skills) && is_array($skills)): ?>
+                                            <?= implode(', ', array_map('htmlspecialchars', $skills)) ?>
+                                        <?php else: ?> <!-- Si le tableau est vide ou n'est pas un tableau -->
+                                            <em>Aucune compétence renseignée</em>
+                                        <?php endif; ?>
+                                    </p>
+                                    
+                                    <p><strong>Contact :</strong> <!-- Vérification de l'email avec un email valide donc @ et . obligatoire -->
+                                        <?= filter_var($email, FILTER_VALIDATE_EMAIL)
+                                            ? htmlspecialchars($email) 
+                                            : '<em>Email invalide ou absent</em>' ?> <!-- Si l'email n'est pas valide, on affiche un message d'erreur -->
+                                    </p>
+                                    <?php
                                     echo "<p><strong>Âge : </strong>". htmlspecialchars($age) . " ans</p>";
                                     ?>
                                 </div>

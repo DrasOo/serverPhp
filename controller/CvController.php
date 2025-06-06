@@ -17,9 +17,8 @@ $job       = getValueSafe($firstCv, 'job');
 $birth     = getValueSafe($firstCv, 'birth');
 $skills    = getValue($firstCv, 'skills');
 if ($skills === null || !is_array($skills)) {
-    $skills = ['Aucune compé']; // Fallback logique ici
+    $skills = []; // Si le $skills n'est pas un tableau, on initialise à un tableau vide grâce à getValue et is_array
     }
- // Note: $skills est un tableau, donc on l'utilisera différemment pour l'affichage
 $email     = getValueSafe($firstCv, 'email');
 $age       = getAge($birth); // Calcul de l'âge à partir de la date de naissance
 

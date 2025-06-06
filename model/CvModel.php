@@ -9,7 +9,7 @@ function getDataCv() {
         'job' => 'Etudiant',
         'birth' => '03/06/2005',
         'city' => 'Angers',
-        'skills' => [''], // Tableau de compétences  'PHP', 'JavaScript', 'HTML', 'CSS','MySQL'
+        'skills' => ['PHP', 'JavaScript', 'HTML', 'CSS','MySQL'], // Tableau de compétences  
         'email' => 'enzo.martin6885@gmail.com'
     ]];
 }

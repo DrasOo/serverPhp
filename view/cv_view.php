@@ -1,3 +1,9 @@
+<?php
+require_once '../bootstrap.php';
+require_once MODEL_PATH . '/CvModel.php';
+require_once MODEL_PATH . '/modelPOO.php';
+?>
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -54,6 +60,12 @@
             </div>
         </div>
     </div>
+    <?php 
+    $dataList = getDataCv(); // Récupère les données
+    $cv = new DataCV($dataList[0]); // Crée une instance avec le premier CV
+
+    echo $cv->getBirth();
+    ?>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>

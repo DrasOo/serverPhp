@@ -1,4 +1,6 @@
 <?php
+// Pour l'instant ce fichier contient des fonctiosn qui ne sont pas utilisées.
+
 // Utilisé getValue pour vérifier si la variable est un tableau et retourner sa valeur ou sinon null (utilisé après dans le controller)
 function getValue(array $arr, string $key)
 {

@@ -14,13 +14,13 @@ require_once MODEL_PATH . '/modelPOO.php';
 </head>
 <body>
 <header class="row ms-2 me-2 mt-2 mb-3">
-    <a class="btn btn-warning" href="/" role="button">Retour en arrière</a>
+    <a class="btn btn-warning shadow" href="/" role="button">Retour en arrière</a>
 </header>
 
 <section class="container text-center">
     <div class="row">
         <div class="col-12 bg-success text-white p-3 m-3 rounded shadow text-start min-vh-100">
-            <h1 class="text-center mb-4">Votre CV généré</h1>
+            <h1 class="text-center mb-4 ">Votre CV généré</h1>
 
             <div class="row mb-3">
                 <div class="col-4">

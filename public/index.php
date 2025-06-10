@@ -16,14 +16,14 @@ require_once '../bootstrap.php';
 <header class="bg-dark text-white m-3 rounded-5 p-3 shadow"> <!-- En-tête de la page -->
     <h1 class="display-1 text-center">Bienvenue sur un générateur de CV</h1>
     <div class="container-lg">
-        <h2 class="display-3 text-center fs-3 mt-4">Cliquez sur le bouton pour accéder à la page !</>
+        <h2 class="display-3 text-center fs-3 mt-4 shadow">Cliquez sur le bouton pour accéder à la page !</>
     </div>
 
 </header>
 <div class="text-center m-5"> <!-- Bouton de redirection -->
     <a
             id="btnRedirect"
-            class="btn text-white btn-info btn-lg "
+            class="btn text-white btn-info btn-lg shadow "
             href="cv.php"
             role="button"
     > Redirection vers le site.

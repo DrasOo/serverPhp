@@ -5,21 +5,21 @@ require_once SERVICE_PATH . '/baseService.php'; // Import de la fonction safeVal
 require_once MODEL_PATH . '/modelPOO.php'; // Import de la classe DataCV
 require_once REPOSITORY_PATH . '/cvRepository.php'; // Import du repository pour récupérer les données du CV
 
-$cv = getDataCv(); // Récupération des données du CV
-$firstCv = $cv[0]; // On prend le premier CV pour l'affichage
-// On utilise la fonction safeValue pour sécuriser les données
-// et éviter les erreurs si une clé n'existe pas dans le tableau
-$id = getValue($firstCv, 'id');
-$name = getValue($firstCv, 'name');
-$firstName = getValue($firstCv, 'firstName');
-$region = getValue($firstCv, 'region');
-$city = getValue($firstCv, 'city');
-$job = getValue($firstCv, 'job');
-$birth = getValue($firstCv, 'birth');
-$skills = getValue($firstCv, 'skills');
-$email = getValue($firstCv, 'email');
-$age = getAge($birth); // Calcul de l'âge à partir de la date de naissance
+$firstCv = new CvRepository(); // On crée une instance de CvRepository pour accéder aux données du CV
+$cv = $firstCv->findById(1); // On cherche le CV avec l'ID 1 (le mien)
+//$cv2 = $firstCv->findAll()
+$firstCv = $cv; // On stocke le CV trouvé dans la variable $firstCv
 
+$name = $firstCv->getName();
+$firstName = $firstCv->getFirstName();
+$region = $firstCv->getRegion();
+$city = $firstCv->getCity();
+$job = $firstCv->getJob();
+$birth = $firstCv->getBirth();
+$skills = $firstCv->getSkills();
+$email = $firstCv->getEmail();
+$age = getAge($birth); // On utilise la fonction getAge pour calculer l'âge à partir de la date de naissance
+$id = $firstCv->getId();
 // fallback skills si nécessaire
 if ($skills === null || !is_array($skills)) {
     $skills = []; // Si le $skills n'est pas un tableau, on initialise à un tableau vide grâce à getValue et is_array

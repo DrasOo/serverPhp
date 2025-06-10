@@ -33,7 +33,7 @@ class CvRepository
         ];
     }
 
-    public function findById($id)
+    public function findById($id) // Trouve un CV par son ID
     {
         foreach ($this->cvList as $cv) {
             if ($cv->getId() == $id) {
@@ -43,7 +43,7 @@ class CvRepository
         return null;
     }
 
-    public function findAll()
+    public function findAll() // Retourne tous les CV dans une liste
     {
         return $this->cvList;
     }

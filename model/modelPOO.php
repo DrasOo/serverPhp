@@ -13,15 +13,15 @@ class DataCV {
     private $email;
 
     public function __construct($data) {
-        $this->id = isset($data['id']) ? $data['id'] : null;
-        $this->name = isset($data['name']) ? $data['name'] : null;
-        $this->firstName = isset($data['firstName']) ? $data['firstName'] : null;
-        $this->region = isset($data['region']) ? $data['region'] : null;
-        $this->city = isset($data['city']) ? $data['city'] : null;
-        $this->job = isset($data['job']) ? $data['job'] : null;
-        $this->birth = isset($data['birth']) ? $data['birth'] : null;
-        $this->skills = isset($data['skills']) && is_array($data['skills']) ? $data['skills'] : [];
-        $this->email = isset($data['email']) ? $data['email'] : null;
+        $this->id = array_key_exists('id', $data) ? $data['id'] : null;
+        $this->name = array_key_exists('name', $data) ? $data['name'] : null;
+        $this->firstName = array_key_exists('firstName', $data) ? $data['firstName'] : null;
+        $this->region = array_key_exists('region', $data) ? $data['region'] : null;
+        $this->city = array_key_exists('city', $data) ? $data['city'] : null;
+        $this->job = array_key_exists('job', $data) ? $data['job'] : null;
+        $this->birth = array_key_exists('birth', $data) ? $data['birth'] : null;
+        $this->skills = array_key_exists('skills', $data) && is_array($data['skills']) ? $data['skills'] : [];
+        $this->email = array_key_exists('email', $data) ? $data['email'] : null;
     }
 
     public function getId() {
@@ -58,5 +58,14 @@ class DataCV {
 
     public function getEmail() {
         return $this->email;
+    }
+
+    public function getAge() {
+        if ($this->birth) {
+            $birthDate = new DateTime($this->birth);
+            $currentDate = new DateTime();
+            $age = $currentDate->diff($birthDate);
+            return $age->y; // Retourne l'âge en années (y = années, m = mois, d = jours)
+        }
     }
 }

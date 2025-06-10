@@ -6,7 +6,7 @@ class CvRepository
 
     public function __construct()
     {
-        $path = REPOSITORY_PATH . '/DataCv.json'; // Chemin vers le fichier JSON contenant les données des CV
+        $path = DATA_PATH . '/DataCv.json'; // Chemin vers le fichier JSON contenant les données des CV
         if (file_exists($path)) {
             $jsonData = file_get_contents($path); // Lit le contenu du fichier JSON
             $data = json_decode($jsonData, true); // Décode le JSON en tableau associatif

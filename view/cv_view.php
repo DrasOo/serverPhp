@@ -1,7 +1,7 @@
 <?php
 require_once '../bootstrap.php';
 require_once MODEL_PATH . '/CvModel.php';
-require_once MODEL_PATH . '/modelPOO.php';
+require_once CONTROLLER_PATH . '/CvController.php';
 ?>
 
 <!doctype html>
@@ -26,47 +26,33 @@ require_once MODEL_PATH . '/modelPOO.php';
                 <div class="col-4">
                     <img src="/img/profile.png" alt="Photo" class="img-fluid rounded ms-5" width="150" height="150">
                 </div>
-                <div class="col-8 text-end">
-                    <h2>
-                        <?= htmlspecialchars($firstName ?? '--') . ' ' . htmlspecialchars($name ?? '') ?>
-                    </h2>
-                    <h3>
-                        Habite en <?= htmlspecialchars($region ?? '--') ?> à <?= !empty($city) ? htmlspecialchars($city) : '--' ?>
-                    </h3>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12 text-end">
-                    <p><strong>Status :</strong> <?= !empty($job) ? htmlspecialchars($job) : '--' ?></p>
-                    <p><strong>Date de naissance :</strong>
-                        <?= htmlspecialchars($birth ?? '--') ?>
-                        (<?= $age !== null ? $age . ' ans' : '<em>Âge inconnu</em>' ?>)
-                    </p>
-                    <p><strong>Compétences :</strong>
-                        <?php if (!empty($skills)): ?>
-                            <?= implode(', ', array_map('htmlspecialchars', $skills)) ?>
-                        <?php else: ?>
-                            <em>Aucune compétence renseignée</em>
-                        <?php endif; ?>
-                    </p>
-                    <p><strong>Contact :</strong>
-                        <?= filter_var($email, FILTER_VALIDATE_EMAIL)
-                            ? htmlspecialchars($email)
-                            : '<em>Email invalide ou absent</em>' ?>
-                    </p>
-                    <p><strong>Âge :</strong> <?= $age !== null ? htmlspecialchars((string)$age) . ' ans' : '<em>Inconnu</em>' ?></p>
-                </div>
-            </div>
+                <ul class="list-group p-3">
+                <li class="list-group-item bg-success text-white"><strong>Prénom :</strong> <?= htmlspecialchars($cv->getFirstName()) ?></li>
+                <li class="list-group-item bg-success text-white"><strong>Nom :</strong> <?= htmlspecialchars($cv->getName()) ?></li>
+                <li class="list-group-item bg-success text-white"><strong>Région :</strong> <?= htmlspecialchars($cv->getRegion()) ?></li>
+                <li class="list-group-item bg-success text-white"><strong>Ville :</strong> <?= htmlspecialchars($cv->getCity()) ?></li>
+                <li class="list-group-item bg-success text-white"><strong>Métier :</strong> <?= htmlspecialchars($cv->getJob()) ?></li>
+                <li class="list-group-item bg-success text-white"><strong>Date de naissance :</strong> <?= htmlspecialchars($cv->getBirth()) ?></li>
+                <li class="list-group-item bg-success text-white"><strong>Email :</strong> <?= htmlspecialchars($cv->getEmail()) ?></li>
+                <li class="list-group-item bg-success text-white"><strong>Compétences :</strong>
+                    <?php
+                    $skills = $cv->getSkills();
+                    if (!empty($skills)) {
+                        echo implode(', ', array_map('htmlspecialchars', $skills));
+                    } else {
+                        echo '<em>Aucune compétence renseignée</em>';
+                    }
+                    ?>
+                </li>
+                <li class="list-group-item bg-success text-white"><strong>Âge :</strong>
+                    <?php
+                    $age = $cv->getAge();
+                    echo $age !== null ? htmlspecialchars((string)$age) . ' ans' : '<em>Inconnu</em>';
+                    ?>
+                </li>
+            </ul>
         </div>
     </div>
-    <?php 
-    $dataList = getDataCv(); // Récupère les données
-    $cv = new DataCV($dataList[0]); // Crée une instance avec le premier CV
-
-    echo $cv->getBirth(). "<br>";
-    echo $cv->getAge();
-    ?>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -63,7 +63,7 @@ require_once CONTROLLER_PATH . '/CvController.php';
     <section class="container text-center">
         <div class="row">
             <div class="col-12">
-                <a href="cvModif.php" class="btn btn-primary">Modifier un CV existant</a>
+                <a href="cvModif.php" class="btn btn-primary m-3 p-2">Modifier un CV existant</a>
             </div>
         </div>
     </section>

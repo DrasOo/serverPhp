@@ -17,7 +17,7 @@ class CvRepository
                 $this->loadFromJsonFile(DATA_PATH . '/data.json');
                 break;
             case 'fake_db':
-                $this->loadFromFakeDatabase();
+                $this->loadFromFakeDatabase(DATA_PATH . '/data.php');
                 break;
             case 'array':
                 $this->loadFromArray(DATA_PATH . '/data.php');
@@ -63,9 +63,18 @@ class CvRepository
     }
 
     // 3. Source simulée d'une base de données
-    private function loadFromFakeDatabase(): void
+    private function loadFromFakeDatabase(string $filePath): void
     {
-        $rows = [
+        if (!file_exists($filePath)) return;
+        // Inclut le fichier PHP et récupère les données simulées
+        $data = require $filePath; // Assure que le fichier retourne un tableau
+        if (is_array($data)) {
+            foreach ($data as $row) {
+                $this->cvList[] = CvModel::fromArray($row);
+            }
+        }
+
+        /*$rows = [
             [
                 'id' => 1,
                 'name' => 'Dupont',
@@ -81,7 +90,7 @@ class CvRepository
 
         foreach ($rows as $row) {
             $this->cvList[] = CvModel::fromArray($row);
-        }
+        }*/
     }
 
 

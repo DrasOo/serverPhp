@@ -17,14 +17,13 @@ class CvModel
         int    $id,
         string $name,
         string $firstname,
-        string $region,
+        ?string $region,
         ?string $city,
-        string $job,
-        string $birth,
-        string $cellphone,
-        array  $skills,
-        string $email,
-        string $age
+        ?string $job,
+        ?string $birth,
+        ?string $cellphone,
+        ?array  $skills,
+        string $email
     )
     {
         $this->id = $id;
@@ -52,7 +51,6 @@ class CvModel
             $data['cellphone'] ?? '',
             is_array($data['skills'] ?? null) ? $data['skills'] : [],
             $data['email'] ?? '',
-            $age = $data['age'] ?? ''
         );
     }
 
@@ -71,7 +69,7 @@ class CvModel
         return $this->firstname;
     }
 
-    public function getRegion(): string
+    public function getRegion(): ?string
     {
         return $this->region;
     }
@@ -81,17 +79,29 @@ class CvModel
         return $this->city;
     }
 
-    public function getJob(): string
+    public function getJob(): ?string
     {
         return $this->job;
     }
 
-    public function getBirth(): string
+    public function getBirth(): ?string
     {
-        return $this->birth;
+        $birth = $this->birth;
+
+        // Vérifie que c'est une date valide au format Y-m-d
+        $date = \DateTime::createFromFormat('Y-m-d', $birth);
+
+        $isValidDate = $date && $date->format('Y-m-d') === $birth;
+
+        if (!$isValidDate) {
+            return null;
+        }
+
+        return $birth;
+
     }
 
-    public function getCellphone(): string
+    public function getCellphone(): ?string
     {
         return $this->cellphone;
     }
@@ -102,7 +112,7 @@ class CvModel
     }
 
 
-    public function getSkills(): array
+    public function getSkills(): ?array
     {
         return $this->skills;
     }

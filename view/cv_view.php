@@ -26,34 +26,39 @@ require_once CONTROLLER_PATH . '/CvController.php';
                 <div class="col-4">
                     <img src="/img/profile.png" alt="Photo" class="img-fluid rounded ms-5" width="150" height="150">
                 </div>
-                <ul class="list-group p-3">
-                <li class="list-group-item bg-success text-white"><strong>Prénom :</strong> <?= htmlspecialchars($cv->getFirstName()) ?></li>
-                <li class="list-group-item bg-success text-white"><strong>Nom :</strong> <?= htmlspecialchars($cv->getName()) ?></li>
-                <li class="list-group-item bg-success text-white"><strong>Région :</strong> <?= htmlspecialchars($cv->getRegion()) ?></li>
-                <li class="list-group-item bg-success text-white"><strong>Ville :</strong> <?= htmlspecialchars($cv->getCity()) ?></li>
-                <li class="list-group-item bg-success text-white"><strong>Métier :</strong> <?= htmlspecialchars($cv->getJob()) ?></li>
-                <li class="list-group-item bg-success text-white"><strong>Date de naissance :</strong> <?= htmlspecialchars($cv->getBirth()) ?></li>
-                <li class="list-group-item bg-success text-white"><strong>Email :</strong> <?= htmlspecialchars($cv->getEmail()) ?></li>
-                <li class="list-group-item bg-success text-white"><strong>Compétences :</strong>
-                    <?php
-                    $skills = $cv->getSkills();
-                    if (!empty($skills)) {
-                        echo implode(', ', array_map('htmlspecialchars', $skills));
-                    } else {
-                        echo '<em>Aucune compétence renseignée</em>';
-                    }
-                    ?>
-                </li>
-                <li class="list-group-item bg-success text-white"><strong>Âge :</strong>
-                    <?php
-                    $age = $cv->getAge();
-                    echo $age !== null ? htmlspecialchars((string)$age) . ' ans' : '<em>Inconnu</em>';
-                    ?>
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
+                <ul class="list-group p-3 ">
+                    <?php if ($cv !== null) {?>
+                    <li class="list-group">
+                        <li class="list-group-item bg-success text-white rounded"><strong>Prénom :</strong> <?= htmlspecialchars($cv->getFirstName()) ?></li>
+                        <li class="list-group-item bg-success text-white rounded"><strong>Nom :</strong> <?= htmlspecialchars($cv->getName()) ?></li>
+                        <li class="list-group-item bg-success text-white rounded"><strong>Région :</strong> <?= htmlspecialchars($cv->getRegion()) ?></li>
+                        <li class="list-group-item bg-success text-white rounded"><strong>Ville :</strong> <?= htmlspecialchars($cv->getCity()) ?></li>
+                        <li class="list-group-item bg-success text-white rounded"><strong>Métier :</strong> <?= htmlspecialchars($cv->getJob()) ?></li>
+                        <li class="list-group-item bg-success text-white rounded"><strong>Date de naissance :</strong> <?= htmlspecialchars($cv->getBirth()) ?></li>
+                        <li class="list-group-item bg-success text-white rounded"><strong>Email :</strong> <?= htmlspecialchars($cv->getEmail()) ?></li>
+                        <li class="list-group-item bg-success text-white rounded"><strong>Compétences :</strong>
+                            <?php
+                            $skills = $cv->getSkills();
+                            if (!empty($skills)) {
+                                echo implode(', ', array_map('htmlspecialchars', $skills));
+                            } else {
+                                echo '<em>Aucune compétence renseignée</em>';
+                            }
+                            ?>
+                        </li>
+                        <li class="list-group-item bg-success text-white"><strong>Âge :</strong>
+                            <?php
+                            $age = $cv->getAge();
+                            echo $age !== null ? htmlspecialchars((string)$age) . ' ans' : '<em>Inconnu</em>';
+                            ?>
+                        </li>
+                        <?php } else { ?>
+                            <li class="list-group-item bg-danger text-white">Aucun CV trouvé.</li>
+                        <?php } ?>
+                    </ul>
+                </div>
+            </div>
+    </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

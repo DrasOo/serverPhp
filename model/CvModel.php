@@ -1,73 +1,131 @@
-<?php 
-require_once '../bootstrap.php';
+<?php
 
-class DataCV {
-    private $id;
-    private $name;
-    private $firstName;
-    private $region;
-    private $city;
-    private $job;
-    private $birth;
-    private $skills;
-    private $email;
+class CvModel
+{
+    private int $id;
+    private string $name;
+    private string $firstname;
+    private string $region;
+    private ?string $city;
+    private string $job;
+    private string $birth;
+    private string $cellphone;
+    private array $skills;
+    private string $email;
 
-    public function __construct($data) {
-        $this->id = $data['id'] ?? null; 
-        $this->name = $data['name'] ?? null;
-        $this->firstName = $data['firstName'] ?? null;
-        $this->region = $data['region'] ?? null;
-        $this->city = $data['city'] ?? null;
-        $this->job = $data['job'] ?? null;
-        $this->birth = $data['birth'] ?? null;
-        $this->skills = (isset($data['skills']) && is_array($data['skills'])) ? $data['skills'] : [];
-        $this->email = $data['email'] ?? null;
+    public function __construct(
+        int    $id,
+        string $name,
+        string $firstname,
+        string $region,
+        ?string $city,
+        string $job,
+        string $birth,
+        string $cellphone,
+        array  $skills,
+        string $email,
+        string $age
+    )
+    {
+        $this->id = $id;
+        $this->name = $name;
+        $this->firstname = $firstname;
+        $this->region = $region;
+        $this->city = $city;
+        $this->job = $job;
+        $this->birth = $birth;
+        $this->cellphone = $cellphone;
+        $this->skills = $skills;
+        $this->email = $email;
     }
 
-    public function getId(): ?string {
+    public static function fromArray(array $data): self
+    {
+        return new self(
+            $data['id'] ?? 0,
+            $data['name'] ?? '',
+            $data['firstname'] ?? '',
+            $data['region'] ?? '',
+            $data['city'] ?? null,
+            $data['job'] ?? '',
+            $data['birth'] ?? '',
+            $data['cellphone'] ?? '',
+            is_array($data['skills'] ?? null) ? $data['skills'] : [],
+            $data['email'] ?? '',
+            $age = $data['age'] ?? ''
+        );
+    }
+
+    public function getId(): int
+    {
         return $this->id;
     }
 
-    public function getName(): ?string {
+    public function getName(): string
+    {
         return $this->name;
     }
 
-    public function getFirstName(): ?string {
-        return $this->firstName;
+    public function getFirstname(): string
+    {
+        return $this->firstname;
     }
 
-    public function getRegion(): ?string {
+    public function getRegion(): string
+    {
         return $this->region;
     }
 
-    public function getCity(): ?string {
+    public function getCity(): ?string
+    {
         return $this->city;
     }
 
-    public function getJob(): ?string {
+    public function getJob(): string
+    {
         return $this->job;
     }
 
-    public function getBirth(): ?string {
+    public function getBirth(): string
+    {
         return $this->birth;
     }
 
-    public function getSkills():array {
-        return $this->skills;
+    public function getCellphone(): string
+    {
+        return $this->cellphone;
     }
 
-    public function getEmail(): ?string {
+    public function getEmail(): string
+    {
         return $this->email;
     }
 
-    public function getAge(): int|null {
-        if ($this->birth) {
-            $birthDate = new DateTime($this->birth);
-            $currentDate = new DateTime();
-            $age = $currentDate->diff($birthDate);
-            return $age->y; // Retourne l'âge en années (y = années, m = mois, d = jours)
+
+    public function getSkills(): array
+    {
+        return $this->skills;
+    }
+
+
+    public function getFullName(): string
+    {
+        return $this->name . ' ' . $this->firstname;
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function getAge(): ?int
+    {
+        if (!$this->birth) return null;
+
+        try {
+            $birthDate = new \DateTime($this->birth);
+            return (new DateTime())->diff($birthDate)->y;
+        } catch (\Exception $e) {
+            //var_dump($e->getMessage());
+            return null;
         }
-        else 
-        return  null; // Si la date de naissance n'est pas définie, retourne null
-        }
+    }
 }

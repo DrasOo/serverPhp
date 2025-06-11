@@ -1,44 +1,104 @@
 <?php
+require_once MODEL_PATH . '/CvModel.php';
 
 class CvRepository
 {
-    private $cvList = [];
+    private array $cvList = [];
 
-    public function __construct()
+    public function __construct(string $source = 'array')
     {
-        $path = DATA_PATH . '/DataCv.json'; // Chemin vers le fichier JSON contenant les données des CV
-        if (file_exists($path)) {
-            $jsonData = file_get_contents($path); // Lit le contenu du fichier JSON
-            $data = json_decode($jsonData, true); // Décode le JSON en tableau associatif
-            if (is_array($data)) {
-                foreach ($data as $cvData) {
-                    $this->cvList[] = new DataCV($cvData); // Crée une instance de DataCV pour chaque entrée et l'ajoute à la liste
+        $this->load($source);
+    }
+
+    private function load(string $source): void
+    {
+        switch ($source) {
+            case 'json':
+                $this->loadFromJsonFile(DATA_PATH . '/data.json');
+                break;
+            case 'fake_db':
+                $this->loadFromFakeDatabase();
+                break;
+            case 'array':
+                $this->loadFromArray(DATA_PATH . '/data.php');
+                break;
+            default:
+                throw new InvalidArgumentException("Source inconnue : $source");
+        }
+    }
+
+
+    // 1. Source manuelle
+    private function loadFromArray(string $filePath): void
+    {
+        if (!file_exists($filePath)) return;
+
+        // 🧠 Inclut le fichier PHP et récupère le tableau $cvs défini dedans
+        $data = include $filePath;
+
+        if (is_array($data)) {
+            foreach ($data as $row) {
+                if (is_array($row)) {
+                    $this->cvList[] = CvModel::fromArray($row);
                 }
             }
         }
     }
 
-    public function findById($id) // Trouve un CV par son ID
+
+    // 2. Source JSON locale (type API)
+    private function loadFromJsonFile(string $filePath): void
     {
-        foreach ($this->cvList as $cv) {
-            if ($cv->getId() == $id) {
-                return $cv; // Retourne le CV correspondant à l'ID
+        if (!file_exists($filePath)) return;
+
+        $json = file_get_contents($filePath);
+        $data = json_decode($json, true);
+
+        if (is_array($data)) {
+            foreach ($data as $row) {
+                $this->cvList[] = CvModel::fromArray($row);
+
             }
         }
-        return null; // Retourne null si aucun CV n'est trouvé
     }
 
-    public function findAll() // Retourne tous les CV dans une liste
+    // 3. Source simulée d'une base de données
+    private function loadFromFakeDatabase(): void
+    {
+        $rows = [
+            [
+                'id' => 1,
+                'name' => 'Dupont',
+                'firstname' => 'Alice',
+                'region' => 'Bretagne',
+                'city' => 'Rennes',
+                'job' => 'Développeuse PHP',
+                'birth' => '1995-04-22',
+                'skills' => ['PHP', 'Laravel'],
+                'email' => 'alice.dupont@example.com'
+            ]
+        ];
+
+        foreach ($rows as $row) {
+            $this->cvList[] = CvModel::fromArray($row);
+        }
+    }
+
+
+    // Accès aux données
+    public function findAll(): array
     {
         return $this->cvList;
     }
 
-    /*public function save($data)
+    public function findById(int $id): ?CvModel
     {
-        $data['id'] = count($this->cvList) + 1;
-        $this->cvList[] = $data;
-        return true;
-    }*/
-
-    
+        foreach ($this->cvList as $cv) {
+            if ($cv->getId() === $id) {
+                return $cv;
+            }
+        }
+        return null;
+    }
 }
+

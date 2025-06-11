@@ -1,31 +1,29 @@
 <?php
-
 class CvModel
 {
     private int $id;
     private string $name;
     private string $firstName;
-    private string $region;
+    private ?string $region;
     private ?string $city;
-    private string $job;
-    private string $birth;
-    private string $cellphone;
+    private ?string $job;
+    private ?DateTimeImmutable $birth;
+    private ?string $cellphone;
     private array $skills;
     private string $email;
 
     public function __construct(
-        int    $id,
+        int $id,
         string $name,
         string $firstName,
         ?string $region,
         ?string $city,
         ?string $job,
-        ?string $birth,
+        ?DateTimeImmutable $birth,
         ?string $cellphone,
-        ?array  $skills,
+        ?array $skills,
         string $email
-    )
-    {
+    ) {
         $this->id = $id;
         $this->name = $name;
         $this->firstName = $firstName;
@@ -34,23 +32,32 @@ class CvModel
         $this->job = $job;
         $this->birth = $birth;
         $this->cellphone = $cellphone;
-        $this->skills = $skills;
+        $this->skills = $skills ?? [];
         $this->email = $email;
     }
 
     public static function fromArray(array $data): self
     {
+        $birth = null;
+        if (!empty($data['birth'])) {
+            try {
+                $birth = new DateTimeImmutable($data['birth']);
+            } catch (Exception) {
+                $birth = null;
+            }
+        }
+
         return new self(
-            $data['id'] ?? 0,
+            (int)($data['id'] ?? 0),
             $data['name'] ?? '',
             $data['firstName'] ?? '',
-            $data['region'] ?? '',
+            $data['region'] ?? null,
             $data['city'] ?? null,
-            $data['job'] ?? '',
-            $data['birth'] ?? '',
-            $data['cellphone'] ?? '',
+            $data['job'] ?? null,
+            $birth,
+            $data['cellphone'] ?? null,
             is_array($data['skills'] ?? null) ? $data['skills'] : [],
-            $data['email'] ?? '',
+            $data['email'] ?? ''
         );
     }
 
@@ -61,12 +68,12 @@ class CvModel
 
     public function getName(): string
     {
-        return strtoupper($this->name);
+        return $this->name;
     }
 
     public function getFirstName(): string
     {
-        return ucfirst($this->firstName);
+        return $this->firstName;
     }
 
     public function getRegion(): ?string
@@ -84,23 +91,6 @@ class CvModel
         return $this->job;
     }
 
-    public function getBirth(): ?string
-    {
-        $birth = $this->birth;
-
-        // Vérifie que c'est une date valide au format Y-m-d
-        $date = \DateTime::createFromFormat('Y-m-d', $birth);
-
-        $isValidDate = $date && $date->format('Y-m-d') === $birth;
-        if (!$isValidDate) {
-            return null;
-        }
-        $birth = $date->format('d/m/Y'); // Formatage de la date au format français
-        // Retourne la date formatée
-        return $birth;
-
-    }
-
     public function getCellphone(): ?string
     {
         return $this->cellphone;
@@ -111,31 +101,27 @@ class CvModel
         return $this->email;
     }
 
-
-    public function getSkills(): ?array
+    public function getSkills(): array
     {
-    return is_array($this->skills) ? $this->skills : [];
+        return $this->skills;
     }
 
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public function getBirthDay(?string $format = 'Y-m-d'): ?string
+    {
+        return $this->birth?->format($format);
+    }
 
     public function getFullName(): string
     {
-        return strtoupper($this->name) . ' ' . ucfirst($this->firstName);
+        return $this->name . ' ' . $this->firstName;
     }
 
-    /**
-     * @throws \Exception
-     */
     public function getAge(): ?int
     {
         if (!$this->birth) return null;
 
-        try {
-            $birthDate = new \DateTime($this->birth);
-            return (new DateTime())->diff($birthDate)->y;
-        } catch (\Exception $e) {
-            //var_dump($e->getMessage());
-            return null;
-        }
+        return $this->birth->diff(new DateTimeImmutable())->y;
     }
 }

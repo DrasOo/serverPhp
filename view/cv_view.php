@@ -34,7 +34,7 @@ require_once CONTROLLER_PATH . '/CvController.php';
                         <li class="list-group-item bg-success text-white rounded"><strong>Région :</strong> <?= htmlspecialchars($cv->getRegion()) ?></li>
                         <li class="list-group-item bg-success text-white rounded"><strong>Ville :</strong> <?= htmlspecialchars($cv->getCity()) ?></li>
                         <li class="list-group-item bg-success text-white rounded"><strong>Métier :</strong> <?= htmlspecialchars($cv->getJob()) ?></li>
-                        <li class="list-group-item bg-success text-white rounded"><strong>Date de naissance :</strong> <?= htmlspecialchars($cv->getBirth() ?? 'Inconnu') ?></li>
+                        <li class="list-group-item bg-success text-white rounded"><strong>Date de naissance :</strong> <?= !empty($cv->getBirthDay()) ? htmlspecialchars($cv->getBirthDay('d/m/Y')) : '--' ?></li>
                         <li class="list-group-item bg-success text-white rounded"><strong>Email :</strong> <?= htmlspecialchars($cv->getEmail()) ?></li>
                         <li class="list-group-item bg-success text-white rounded"><strong>Compétences :</strong>
                             <?php

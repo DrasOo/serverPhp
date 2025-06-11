@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
 </head>
-<>
     <header class="row ms-2 me-2 mt-2 mb-3">
     <a class="btn btn-warning shadow" href="/" role="button">Retour en arrière</a>
     </header>
@@ -28,7 +27,7 @@
                         <li class="list-group-item bg-danger text-white rounded"><strong>Région :</strong> <?= htmlspecialchars($cv->getRegion()) ?></li>
                         <li class="list-group-item bg-danger text-white rounded"><strong>Ville :</strong> <?= htmlspecialchars($cv->getCity()) ?></li>
                         <li class="list-group-item bg-danger text-white rounded"><strong>Métier :</strong> <?= htmlspecialchars($cv->getJob()) ?></li>
-                        <li class="list-group-item bg-danger text-white rounded"><strong>Date de naissance :</strong> <?= htmlspecialchars($cv->getBirth() ?? 'Inconnu') ?></li>
+                        <li class="list-group-item bg-danger text-white rounded"><strong>Date de naissance :</strong> <?= !empty($cv->getBirthDay()) ? htmlspecialchars($cv->getBirthDay('d/m/Y')) : '--' ?></li>
                         <li class="list-group-item bg-danger text-white rounded"><strong>Email :</strong> <?= htmlspecialchars($cv->getEmail()) ?></li>
                         <li class="list-group-item bg-danger text-white rounded"><strong>Compétences :</strong>
                             <?php

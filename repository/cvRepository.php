@@ -73,24 +73,6 @@ class CvRepository
                 $this->cvList[] = CvModel::fromArray($row);
             }
         }
-
-        /*$rows = [
-            [
-                'id' => 1,
-                'name' => 'Dupont',
-                'firstname' => 'Alice',
-                'region' => 'Bretagne',
-                'city' => 'Rennes',
-                'job' => 'Développeuse PHP',
-                'birth' => '1995-04-22',
-                'skills' => ['PHP', 'Laravel'],
-                'email' => 'alice.dupont@example.com'
-            ]
-        ];
-
-        foreach ($rows as $row) {
-            $this->cvList[] = CvModel::fromArray($row);
-        }*/
     }
 
 

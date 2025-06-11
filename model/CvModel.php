@@ -61,12 +61,12 @@ class CvModel
 
     public function getName(): string
     {
-        return $this->name;
+        return strtoupper($this->name);
     }
 
     public function getFirstname(): string
     {
-        return $this->firstname;
+        return ucfirst($this->firstname);
     }
 
     public function getRegion(): ?string
@@ -92,11 +92,11 @@ class CvModel
         $date = \DateTime::createFromFormat('Y-m-d', $birth);
 
         $isValidDate = $date && $date->format('Y-m-d') === $birth;
-
         if (!$isValidDate) {
             return null;
         }
-
+        $birth = $date->format('d/m/Y'); // Formatage de la date au format français
+        // Retourne la date formatée
         return $birth;
 
     }
@@ -120,7 +120,7 @@ class CvModel
 
     public function getFullName(): string
     {
-        return $this->name . ' ' . $this->firstname;
+        return strtoupper($this->name) . ' ' . ucfirst($this->firstname);
     }
 
     /**

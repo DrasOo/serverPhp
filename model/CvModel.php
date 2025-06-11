@@ -4,7 +4,7 @@ class CvModel
 {
     private int $id;
     private string $name;
-    private string $firstname;
+    private string $firstName;
     private string $region;
     private ?string $city;
     private string $job;
@@ -16,7 +16,7 @@ class CvModel
     public function __construct(
         int    $id,
         string $name,
-        string $firstname,
+        string $firstName,
         ?string $region,
         ?string $city,
         ?string $job,
@@ -28,7 +28,7 @@ class CvModel
     {
         $this->id = $id;
         $this->name = $name;
-        $this->firstname = $firstname;
+        $this->firstName = $firstName;
         $this->region = $region;
         $this->city = $city;
         $this->job = $job;
@@ -43,7 +43,7 @@ class CvModel
         return new self(
             $data['id'] ?? 0,
             $data['name'] ?? '',
-            $data['firstname'] ?? '',
+            $data['firstName'] ?? '',
             $data['region'] ?? '',
             $data['city'] ?? null,
             $data['job'] ?? '',
@@ -64,9 +64,9 @@ class CvModel
         return strtoupper($this->name);
     }
 
-    public function getFirstname(): string
+    public function getFirstName(): string
     {
-        return ucfirst($this->firstname);
+        return ucfirst($this->firstName);
     }
 
     public function getRegion(): ?string
@@ -114,13 +114,13 @@ class CvModel
 
     public function getSkills(): ?array
     {
-        return $this->skills;
+    return is_array($this->skills) ? $this->skills : [];
     }
 
 
     public function getFullName(): string
     {
-        return strtoupper($this->name) . ' ' . ucfirst($this->firstname);
+        return strtoupper($this->name) . ' ' . ucfirst($this->firstName);
     }
 
     /**

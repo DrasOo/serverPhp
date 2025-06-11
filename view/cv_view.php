@@ -26,9 +26,9 @@ require_once CONTROLLER_PATH . '/CvController.php';
                 <div class="col-4">
                     <img src="/img/profile.png" alt="Photo" class="img-fluid rounded ms-5" width="150" height="150">
                 </div>
-                <ul class="list-group p-3 ">
+                <li class="list-group p-3 ">
                     <?php if ($cv !== null) {?>
-                    <li class="list-group">
+                    <ul class="list-group">
                         <li class="list-group-item bg-success text-white rounded"><strong>Prénom :</strong> <?= htmlspecialchars($cv->getFirstName()) ?></li>
                         <li class="list-group-item bg-success text-white rounded"><strong>Nom :</strong> <?= htmlspecialchars($cv->getName()) ?></li>
                         <li class="list-group-item bg-success text-white rounded"><strong>Région :</strong> <?= htmlspecialchars($cv->getRegion()) ?></li>
@@ -56,6 +56,7 @@ require_once CONTROLLER_PATH . '/CvController.php';
                             <li class="list-group-item bg-danger text-white">Aucun CV trouvé.</li>
                         <?php } ?>
                     </ul>
+                    </li>
                 </div>
             </div>
     </section>
@@ -65,6 +66,7 @@ require_once CONTROLLER_PATH . '/CvController.php';
                 <a href="cvModif.php" class="btn btn-primary">Modifier un CV existant</a>
             </div>
         </div>
+    </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

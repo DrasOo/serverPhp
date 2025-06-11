@@ -3,7 +3,7 @@ return [
     [
         "id" => 1,
         "name" => "Martin",
-        "firstname" => "Enzo",
+        "firstName" => "Enzo",
         "region" => "France",
         "city" => "Angers",
         "job" => "Étudiant",
@@ -14,7 +14,7 @@ return [
     [
         "id" => 2,
         "name" => "Dupont",
-        "firstname" => "Sophie",
+        "firstName" => "Sophie",
         "region" => "France",
         "city" => "Nantes",
         "job" => "Développeuse",

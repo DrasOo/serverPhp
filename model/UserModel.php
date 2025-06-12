@@ -1,5 +1,5 @@
 <?php
-class CvModel
+class UserModel
 {
     private int $id;
     private string $name;
@@ -68,12 +68,12 @@ class CvModel
 
     public function getName(): string
     {
-        return $this->name;
+        return strtoupper($this->name);
     }
 
     public function getFirstName(): string
     {
-        return $this->firstName;
+        return ucfirst($this->firstName);
     }
 
     public function getRegion(): ?string
@@ -105,9 +105,6 @@ class CvModel
     {
         return $this->skills;
     }
-
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function getBirthDay(?string $format = 'Y-m-d'): ?string
     {
         return $this->birth?->format($format);

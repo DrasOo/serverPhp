@@ -1,5 +1,5 @@
 <?php
-require_once MODEL_PATH . '/CvModel.php';
+require_once MODEL_PATH . '/UserModel.php';
 
 class CvRepository
 {
@@ -39,7 +39,7 @@ class CvRepository
         if (is_array($data)) {
             foreach ($data as $row) {
                 if (is_array($row)) {
-                    $this->cvList[] = CvModel::fromArray($row);
+                    $this->cvList[] = UserModel::fromArray($row);
                 }
             }
         }
@@ -56,7 +56,7 @@ class CvRepository
 
         if (is_array($data)) {
             foreach ($data as $row) {
-                $this->cvList[] = CvModel::fromArray($row);
+                $this->cvList[] =UserModel::fromArray($row);
 
             }
         }
@@ -70,7 +70,7 @@ class CvRepository
         $data = require $filePath; // Assure que le fichier retourne un tableau
         if (is_array($data)) {
             foreach ($data as $row) {
-                $this->cvList[] = CvModel::fromArray($row);
+                $this->cvList[] =UserModel::fromArray($row);
             }
         }
     }
@@ -82,7 +82,7 @@ class CvRepository
         return $this->cvList;
     }
 
-    public function findById(int $id): ?CvModel
+    public function findById(int $id): ?UserModel
     {
         foreach ($this->cvList as $cv) {
             if ($cv->getId() === $id) {

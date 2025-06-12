@@ -1,6 +1,6 @@
 <?php
 require_once '../bootstrap.php';
-require_once MODEL_PATH . '/CvModel.php';
+require_once MODEL_PATH . '/UserModel.php';
 require_once CONTROLLER_PATH . '/CvController.php';
 ?>
 

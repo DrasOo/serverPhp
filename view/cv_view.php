@@ -8,7 +8,7 @@ require_once CONTROLLER_PATH . '/CvController.php';
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <title>Générateur de CV</title>
+    <title>Générateur de user$user</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
 </head>
@@ -27,18 +27,18 @@ require_once CONTROLLER_PATH . '/CvController.php';
                     <img src="/img/profile.png" alt="Photo" class="img-fluid rounded ms-5" width="150" height="150">
                 </div>
                 <li class="list-group p-3 ">
-                    <?php if ($cv !== null) {?>
+                    <?php if ($user !== null) {?>
                     <ul class="list-group">
-                        <li class="list-group-item bg-success text-white rounded"><strong>Prénom :</strong> <?= htmlspecialchars($cv->getFirstName()) ?></li>
-                        <li class="list-group-item bg-success text-white rounded"><strong>Nom :</strong> <?= htmlspecialchars($cv->getName()) ?></li>
-                        <li class="list-group-item bg-success text-white rounded"><strong>Région :</strong> <?= htmlspecialchars($cv->getRegion()) ?></li>
-                        <li class="list-group-item bg-success text-white rounded"><strong>Ville :</strong> <?= htmlspecialchars($cv->getCity()) ?></li>
-                        <li class="list-group-item bg-success text-white rounded"><strong>Métier :</strong> <?= htmlspecialchars($cv->getJob()) ?></li>
-                        <li class="list-group-item bg-success text-white rounded"><strong>Date de naissance :</strong> <?= !empty($cv->getBirthDay()) ? htmlspecialchars($cv->getBirthDay('d/m/Y')) : '--' ?></li>
-                        <li class="list-group-item bg-success text-white rounded"><strong>Email :</strong> <?= htmlspecialchars($cv->getEmail()) ?></li>
+                        <li class="list-group-item bg-success text-white rounded"><strong>Prénom :</strong> <?= htmlspecialchars($user->getFirstName()) ?></li>
+                        <li class="list-group-item bg-success text-white rounded"><strong>Nom :</strong> <?= htmlspecialchars($user->getName()) ?></li>
+                        <li class="list-group-item bg-success text-white rounded"><strong>Région :</strong> <?= htmlspecialchars($user->getRegion()) ?></li>
+                        <li class="list-group-item bg-success text-white rounded"><strong>Ville :</strong> <?= htmlspecialchars($user->getCity()) ?></li>
+                        <li class="list-group-item bg-success text-white rounded"><strong>Métier :</strong> <?= htmlspecialchars($user->getJob()) ?></li>
+                        <li class="list-group-item bg-success text-white rounded"><strong>Date de naissance :</strong> <?= !empty($user->getBirthDay()) ? htmlspecialchars($user->getBirthDay('d/m/Y')) : '--' ?></li>
+                        <li class="list-group-item bg-success text-white rounded"><strong>Email :</strong> <?= htmlspecialchars($user->getEmail()) ?></li>
                         <li class="list-group-item bg-success text-white rounded"><strong>Compétences :</strong>
                             <?php
-                            $skills = $cv->getSkills();
+                            $skills = $user->getSkills();
                             if (!empty($skills)) {
                                 echo implode(', ', array_map('htmlspecialchars', $skills));
                             } else {
@@ -48,12 +48,12 @@ require_once CONTROLLER_PATH . '/CvController.php';
                         </li>
                         <li class="list-group-item bg-success text-white"><strong>Âge :</strong>
                             <?php
-                            $age = $cv->getAge();
+                            $age = $user->getAge();
                             echo $age !== null ? htmlspecialchars((string)$age) . ' ans' : '<em>Inconnu</em>';
                             ?>
                         </li>
                         <?php } else { ?>
-                            <li class="list-group-item bg-danger text-white">Aucun CV trouvé.</li>
+                            <li class="list-group-item bg-danger text-white">Aucun user$user trouvé.</li>
                         <?php } ?>
                     </ul>
                     </li>
@@ -63,7 +63,7 @@ require_once CONTROLLER_PATH . '/CvController.php';
     <section class="container text-center">
         <div class="row">
             <div class="col-12">
-                <a href="cvModif.php" class="btn btn-primary m-3 p-2">Modifier un CV existant</a>
+                <a href="user$userModif.php" class="btn btn-primary m-3 p-2">Modifier un user$user existant</a>
             </div>
         </div>
     </section>

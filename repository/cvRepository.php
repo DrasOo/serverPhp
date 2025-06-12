@@ -3,7 +3,7 @@ require_once MODEL_PATH . '/UserModel.php';
 
 class CvRepository
 {
-    private array $cvList = [];
+    private array $userList = [];
 
     public function __construct(string $source = 'array')
     {
@@ -33,13 +33,13 @@ class CvRepository
     {
         if (!file_exists($filePath)) return;
 
-        // 🧠 Inclut le fichier PHP et récupère le tableau $cvs défini dedans
+        // 🧠 Inclut le fichier PHP et récupère le tableau $users défini dedans
         $data = include $filePath;
 
         if (is_array($data)) {
             foreach ($data as $row) {
                 if (is_array($row)) {
-                    $this->cvList[] = UserModel::fromArray($row);
+                    $this->userList[] = UserModel::fromArray($row);
                 }
             }
         }
@@ -56,7 +56,7 @@ class CvRepository
 
         if (is_array($data)) {
             foreach ($data as $row) {
-                $this->cvList[] =UserModel::fromArray($row);
+                $this->userList[] = UserModel::fromArray($row);
 
             }
         }
@@ -70,7 +70,7 @@ class CvRepository
         $data = require $filePath; // Assure que le fichier retourne un tableau
         if (is_array($data)) {
             foreach ($data as $row) {
-                $this->cvList[] =UserModel::fromArray($row);
+                $this->userList[] = UserModel::fromArray($row);
             }
         }
     }
@@ -79,14 +79,14 @@ class CvRepository
     // Accès aux données
     public function findAll(): array
     {
-        return $this->cvList;
+        return $this->userList;
     }
 
     public function findById(int $id): ?UserModel
     {
-        foreach ($this->cvList as $cv) {
-            if ($cv->getId() === $id) {
-                return $cv;
+        foreach ($this->userList as $user) {
+            if ($user->getId() === $id) {
+                return $user;
             }
         }
         return null;

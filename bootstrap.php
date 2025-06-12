@@ -1,10 +1,11 @@
 <?php
-define(constant_name: 'BASE_PATH', value: dirname(__FILE__));
-define(constant_name: 'MODEL_PATH', value: BASE_PATH . '/model');
-define(constant_name: 'CONTROLLER_PATH', value: BASE_PATH . '/controller');
-define(constant_name: 'VIEW_PATH', value: BASE_PATH . '/view');
-define(constant_name: 'SERVICE_PATH', value: BASE_PATH . '/service');
-define(constant_name: 'REPOSITORY_PATH', value: BASE_PATH . '/repository');
-define(constant_name: 'PUBLIC_PATH', value: BASE_PATH . '/public');
-define(constant_name: 'DATA_PATH', value: BASE_PATH . '/data');
-define(constant_name: 'CONFIG_PATH', value: BASE_PATH . '/config');
+
+const BASE_PATH = __DIR__;
+const MODEL_PATH = BASE_PATH . '/model';
+const CONTROLLER_PATH = BASE_PATH . '/controller';
+const VIEW_PATH = BASE_PATH . '/view';
+const SERVICE_PATH = BASE_PATH . '/service';
+const REPOSITORY_PATH = BASE_PATH . '/repository';
+const PUBLIC_PATH = BASE_PATH . '/public';
+const DATA_PATH = BASE_PATH . '/data';
+const CONFIG_PATH = BASE_PATH . '/config';

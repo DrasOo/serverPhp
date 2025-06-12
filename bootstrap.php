@@ -9,3 +9,4 @@ const REPOSITORY_PATH = BASE_PATH . '/repository';
 const PUBLIC_PATH = BASE_PATH . '/public';
 const DATA_PATH = BASE_PATH . '/data';
 const CONFIG_PATH = BASE_PATH . '/config';
+const SEEDER_PATH = SERVICE_PATH . '/Seeder';

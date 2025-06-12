@@ -1,5 +1,6 @@
 <?php
 require_once MODEL_PATH . '/UserModel.php';
+require_once SERVICE_PATH . '/DatabaseService.php';
 
 class CvRepository
 {
@@ -21,6 +22,9 @@ class CvRepository
                 break;
             case 'array':
                 $this->loadFromArray(DATA_PATH . '/data.php');
+                break;
+            case 'database':
+                $this->loadFromDatabase(); // Connexion à la base de données
                 break;
             default:
                 throw new InvalidArgumentException("Source inconnue : $source");
@@ -74,6 +78,19 @@ class CvRepository
             }
         }
     }
+    private function loadFromDatabase(): void
+{
+    $config = require CONFIG_PATH . '/config.php';
+    $pdo = Database::connectWithDB($config);
+
+    $stmt = $pdo->query('SELECT * FROM users');
+    $rows = $stmt->fetchAll();
+
+    foreach ($rows as $row) {
+        $this->userList[] = UserModel::fromArray($row);
+    }
+}
+
 
 
     // Accès aux données

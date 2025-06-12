@@ -8,7 +8,7 @@ require_once CONTROLLER_PATH . '/CvController.php';
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <title>Générateur de user$user</title>
+    <title>Générateur de CV</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
 </head>
@@ -53,7 +53,7 @@ require_once CONTROLLER_PATH . '/CvController.php';
                             ?>
                         </li>
                         <?php } else { ?>
-                            <li class="list-group-item bg-danger text-white">Aucun user$user trouvé.</li>
+                            <li class="list-group-item bg-danger text-white">Aucun CV trouvé.</li>
                         <?php } ?>
                     </ul>
                     </li>
@@ -63,7 +63,7 @@ require_once CONTROLLER_PATH . '/CvController.php';
     <section class="container text-center">
         <div class="row">
             <div class="col-12">
-                <a href="user$userModif.php" class="btn btn-primary m-3 p-2">Modifier un user$user existant</a>
+                <a href="CvModif.php" class="btn btn-primary m-3 p-2">Modifier un CV existant</a>
             </div>
         </div>
     </section>

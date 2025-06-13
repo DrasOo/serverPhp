@@ -10,3 +10,6 @@ const PUBLIC_PATH = BASE_PATH . '/public';
 const DATA_PATH = BASE_PATH . '/data';
 const CONFIG_PATH = BASE_PATH . '/config';
 const SEEDER_PATH = SERVICE_PATH . '/Seeder';
+const ASSETS_PATH = PUBLIC_PATH . '/assets';
+const API_PATH = BASE_PATH . '/api';
+const DATABASE_PATH = BASE_PATH . '/database';

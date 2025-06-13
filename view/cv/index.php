@@ -45,7 +45,7 @@ require_once CONTROLLER_PATH . '/CvController.php';
 
             <div class="row mb-3">
                 <div class="col-4">
-                    <img src="/img/profile.png" alt="Photo" class="img-fluid rounded ms-5" width="150" height="150">
+                    <img src="assets/img/profile.png" alt="Photo" class="img-fluid rounded ms-5" width="150" height="150">
                 </div>
                 <li class="list-group p-3 ">
                     <ul class="list-group">

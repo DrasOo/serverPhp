@@ -17,7 +17,7 @@
 
             <div class="row mb-3">
                 <div class="col-4">
-                    <img src="/img/profile.png" alt="Photo" class="img-fluid rounded ms-5" width="150" height="150">
+                    <img src="assets/img/profile.png" alt="Photo" class="img-fluid rounded ms-5" width="150" height="150">
                 </div>
                 <ul class="list-group p-3 ">
                     <?php if ($cv !== null) {?>

@@ -21,7 +21,7 @@ try {
             CREATE TABLE IF NOT EXISTS users (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 name VARCHAR(100) NOT NULL,
-                firstName VARCHAR(100) NOT NULL,
+                first_name VARCHAR(100) NOT NULL,
                 region VARCHAR(100),
                 city VARCHAR(100),
                 job VARCHAR(100),

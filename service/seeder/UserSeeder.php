@@ -51,7 +51,7 @@ class UserSeeder
         return [
             [
                 'name' => 'Martin',
-                'firstName' => 'Enzo',
+                'first_name' => 'Enzo',
                 'region' => 'Pays de la Loire',
                 'city' => 'Angers',
                 'job' => 'Étudiant',
@@ -62,7 +62,7 @@ class UserSeeder
             ],
             [
                 'name' => 'Dupont',
-                'firstName' => 'Sophie',
+                'first_name' => 'Sophie',
                 'region' => 'Bretagne',
                 'city' => 'Rennes',
                 'job' => 'Développeuse Symfony',
@@ -80,13 +80,13 @@ class UserSeeder
     private function insertUser(array $user): void // avec les données fictives de getFakeUsers() on insert dans la base de données
     {
         $stmt = $this->pdo->prepare(" 
-            INSERT INTO users (name, firstName, region, city, job, birth, cellphone, email, skills)
-            VALUES (:name, :firstName, :region, :city, :job, :birth, :cellphone, :email, :skills)
+            INSERT INTO users (name, first_name, region, city, job, birth, cellphone, email, skills)
+            VALUES (:name, :first_name, :region, :city, :job, :birth, :cellphone, :email, :skills)
         ");
 
         $success = $stmt->execute([ // On prépare la requête avec les données fictives et on l'exécute
             ':name' => $user['name'],
-            ':firstName' => $user['firstName'],
+            ':first_name' => $user['first_name'],
             ':region' => $user['region'],
             ':city' => $user['city'],
             ':job' => $user['job'],
@@ -100,6 +100,6 @@ class UserSeeder
             throw new PDOException("Erreur lors de l'insertion de l'utilisateur : " . $user['email']);
         }
 
-        echo "L'utilisateur {$user['firstName']} {$user['name']} ajouté.\n";
+        echo "L'utilisateur {$user['first_name']} {$user['name']} ajouté.\n";
     }
 }

@@ -4,7 +4,7 @@ require_once SERVICE_PATH . '/DatabaseService.php';
 require_once CONFIG_PATH . '/parameters.php';
 require_once SEEDER_PATH . '/UserSeeder.php';
 
-$config = require CONFIG_PATH . '/config.php';
+$config = require CONFIG_PATH . '/parameters.php';
 
 try {
     // Connexion à la base de données

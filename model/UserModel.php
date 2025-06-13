@@ -50,7 +50,7 @@ class UserModel
         return new self(
             (int)($data['id'] ?? 0),
             $data['name'] ?? '',
-            $data['firstName'] ?? '',
+            $data['first_name'] ?? '',
             $data['region'] ?? null,
             $data['city'] ?? null,
             $data['job'] ?? null,

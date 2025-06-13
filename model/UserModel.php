@@ -36,6 +36,21 @@ class UserModel
         $this->email = $email;
     }
 
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'first_name' => $this->firstName,
+            'region' => $this->region,
+            'city' => $this->city,
+            'job' => $this->job,
+            'birth' => $this->getBirthDay(),
+            'cellphone' => $this->cellphone,
+            'skills' => $this->skills,
+            'email' => $this->email,
+        ];
+    }
     public static function fromArray(array $data): self
     {
         $birth = null;

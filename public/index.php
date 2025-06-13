@@ -24,6 +24,9 @@ switch ($route) {
         require_once CONTROLLER_PATH . '/CvController.php';
         include CV_PATH . '/show.php';
         break;
+    case 'data':
+        require_once DATA_PATH . '/dataTest.php';
+        break;
     
     default:
         echo "Page d'accueil";

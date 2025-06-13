@@ -55,7 +55,7 @@
     <section class="container text-center">
         <div class="row">
             <div class="col-12">
-                <a href="cv.php" class="btn btn-secondary">Revoir votre CV </a>
+                <a href="/?route=show" class="btn btn-secondary">Revoir votre CV </a>
             </div>
         </div>
     </section>

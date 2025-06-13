@@ -3,7 +3,7 @@
 - `seed.php` : insère des données factices
 
 ## Utilisation des scripts
-'''bash
+```bash
 - `php database/migrate.php` : Crée la database "CvProjet" et la table "users"
 - `php database/seed.php`  : Ajoute des données à la table "users"
 

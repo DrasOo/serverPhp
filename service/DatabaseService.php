@@ -1,4 +1,5 @@
 <?php
+$config = require CONFIG_PATH . '/config.php';
 
 class Database
 {

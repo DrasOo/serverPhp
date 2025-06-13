@@ -51,7 +51,7 @@ class UserSeeder
         return [
             [
                 'name' => 'Martin',
-                'first_name' => 'Enzo',
+                'firstName' => 'Enzo',
                 'region' => 'Pays de la Loire',
                 'city' => 'Angers',
                 'job' => 'Étudiant',
@@ -62,7 +62,7 @@ class UserSeeder
             ],
             [
                 'name' => 'Dupont',
-                'first_name' => 'Sophie',
+                'firstName' => 'Sophie',
                 'region' => 'Bretagne',
                 'city' => 'Rennes',
                 'job' => 'Développeuse Symfony',
@@ -86,7 +86,7 @@ class UserSeeder
 
         $success = $stmt->execute([ // On prépare la requête avec les données fictives et on l'exécute
             ':name' => $user['name'],
-            ':firstName' => $user['first_name'],
+            ':firstName' => $user['firstName'],
             ':region' => $user['region'],
             ':city' => $user['city'],
             ':job' => $user['job'],
@@ -100,6 +100,6 @@ class UserSeeder
             throw new PDOException("Erreur lors de l'insertion de l'utilisateur : " . $user['email']);
         }
 
-        echo "L'utilisateur {$user['first_name']} {$user['name']} ajouté.\n";
+        echo "L'utilisateur {$user['firstName']} {$user['name']} ajouté.\n";
     }
 }

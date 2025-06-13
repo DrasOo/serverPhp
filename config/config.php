@@ -3,7 +3,7 @@ return [
     'db' => [
         'host' => 'localhost',
         'port' => 3306,
-        'dbname' => 'cvProject',
+        'dbname' => 'cvproject',
         'user' => 'root',
         'pass' => '',
         'charset' => 'utf8mb4',

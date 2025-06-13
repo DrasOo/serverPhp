@@ -57,7 +57,7 @@ class UserSeeder
                 'job' => 'Étudiant',
                 'birth' => '2005-06-03',
                 'cellphone' => '0612345678',
-                'email' => 'enzo.martin@gmail.com',
+                'email' => 'enzo.martin3885@gmail.com',
                 'skills' => json_encode(['PHP 8', 'JavaScript', 'HTML', 'MySQL']),
             ],
             [

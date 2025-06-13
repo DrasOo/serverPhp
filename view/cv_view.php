@@ -10,7 +10,7 @@ require_once CONTROLLER_PATH . '/CvController.php';
     <meta charset="utf-8">
     <title>Générateur de CV</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
+    <link href="public\assets\css\style.css" rel="stylesheet">
 </head>
 <body>
 <header class="row ms-2 me-2 mt-2 mb-3">

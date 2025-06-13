@@ -1,7 +1,7 @@
 <?php
 require_once 'bootstrap.php';
 require_once SERVICE_PATH . '/DatabaseService.php';
-require_once CONFIG_PATH . '/config.php';
+require_once CONFIG_PATH . '/parameters.php';
 require_once SEEDER_PATH . '/UserSeeder.php';
 
 $config = require CONFIG_PATH . '/config.php';

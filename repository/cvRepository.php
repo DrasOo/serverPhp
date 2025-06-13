@@ -80,7 +80,7 @@ class CvRepository
     }
     private function loadFromDatabase(): void
 {
-    $config = require CONFIG_PATH . '/config.php';
+    $config = require CONFIG_PATH . '/parameters.php';
     $pdo = Database::connectWithDB($config);
 
     $stmt = $pdo->query('SELECT * FROM users');

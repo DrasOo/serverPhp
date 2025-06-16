@@ -4,6 +4,7 @@
 
 ## Utilisation des scripts
 ```bash
-php database/migrate.php : Crée la database "CvProjet" et la table "users"
+php database/migrate.php``` : Crée la database "CvProjet" et la table "users" 
+```bash
 php database/seed.php : Ajoute des données à la table "users"
 ```

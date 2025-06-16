@@ -28,8 +28,8 @@ require_once CONTROLLER_PATH . '/CvController.php';
                 <div class="col-4">
                     <img src="assets/img/profile.png" alt="Photo" class="img-fluid rounded ms-5" width="150" height="150">
                 </div>
-                <li class="list-group p-3 ">
-                    <ul class="list-group">
+                <ul class="list-group p-3 ">
+                    <li class="list-group">
                     <table id="users-table" class="display">
                         <thead>
                         <tr>
@@ -41,8 +41,8 @@ require_once CONTROLLER_PATH . '/CvController.php';
                         </tr>
                         </thead>
                     </table>
+                        </li>
                     </ul>
-                    </li>
                 </div>
             </div>
     </section>

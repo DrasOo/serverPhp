@@ -25,7 +25,7 @@ switch ($route) {
         require_once DATA_PATH . '/dataTest.php';
         break;
     case 'make':
-        include CV_PATH . 'make.php';
+        include CV_PATH . '/make.php';
         break;
     
     default:

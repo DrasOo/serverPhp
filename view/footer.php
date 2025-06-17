@@ -23,5 +23,5 @@
 </div>
 <footer class="bg-light text-center text-lg-start mt-5">
     <div class="text-center p-3">
-        © 2023 Mon CV Generator
+        © 2025 Générateur de CV - Tous droits réservés
         <a class="text-dark" href="

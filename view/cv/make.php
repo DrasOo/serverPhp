@@ -23,14 +23,14 @@ require_once CONTROLLER_PATH . '/CvController.php';
                 <div class="col-4">
                     <img src="assets/img/profile.png" alt="Photo" class="img-fluid rounded ms-5" width="150" height="150">
                 </div>
-                <form class="user-form" id="userForm">
+                <form method="POST"class="user-form" id="userForm">
                     <li class="list-group p-3 d-flex"> <!-- Formulaire d'ajout de CV -->
                         <ul class="list-group">
                             <li class="list-group-item bg-success text-white rounded">
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">👤</span>
                                     <div class="form-floating is-invalid">
-                                        <input type="text" class="form-control is-invalid" id="prenom" placeholder="Prénom" required>
+                                        <input type="text" class="form-control is-invalid" id="prenom" name="prenom" placeholder="Prénom" required>
                                         <label for="prenom">Prénom</label>
                                     </div>
                                     <div class="invalid-feedback bg-white p-2 rounded">
@@ -42,7 +42,7 @@ require_once CONTROLLER_PATH . '/CvController.php';
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">👤</span>
                                     <div class="form-floating is-invalid">
-                                        <input type="text" class="form-control is-invalid" id="nom" placeholder="Nom" required>
+                                        <input type="text" class="form-control is-invalid" id="nom" name="nom" placeholder="Nom" required>
                                         <label for="nom">Nom</label>
                                     </div>
                                     <div class="invalid-feedback bg-white p-2 rounded">
@@ -54,7 +54,7 @@ require_once CONTROLLER_PATH . '/CvController.php';
                                 <div class="input-group">
                                     <span class="input-group-text">🌍</span>
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="region" placeholder="Région">
+                                        <input type="text" class="form-control" id="region" name="region" placeholder="Région">
                                         <label for="region">Région</label>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@ require_once CONTROLLER_PATH . '/CvController.php';
                                 <div class="input-group">
                                     <span class="input-group-text">🏙️</span>
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="city" placeholder="Ville">
+                                        <input type="text" class="form-control" id="city" name="city" placeholder="Ville">
                                         <label for="city">Ville</label>
                                     </div>
                                 </div>
@@ -72,7 +72,7 @@ require_once CONTROLLER_PATH . '/CvController.php';
                                 <div class="input-group">
                                     <span class="input-group-text">🎂</span>
                                     <div class="form-floating">
-                                        <input type="date" class="form-control" id="birthday" placeholder="Date de naissance">
+                                        <input type="date" class="form-control" id="birthday" name="birthday" placeholder="Date de naissance">
                                         <label for="birthday">Date de naissance</label>
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@ require_once CONTROLLER_PATH . '/CvController.php';
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">@</span>
                                     <div class="form-floating is-invalid">
-                                        <input type="email" class="form-control is-invalid" id="email" placeholder="Email" required>
+                                        <input type="email" class="form-control is-invalid" id="email" name="email" placeholder="Email" required>
                                         <label for="email">Email</label>
                                     </div>
                                     <div class="invalid-feedback bg-white p-2 rounded">
@@ -93,7 +93,7 @@ require_once CONTROLLER_PATH . '/CvController.php';
                                 <div class="input-group">
                                     <span class="input-group-text">💼</span>
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="job" placeholder="Métier">
+                                        <input type="text" class="form-control" id="job" name="job" placeholder="Métier">
                                         <label for="job">Métier</label>
                                     </div>
                                 </div>
@@ -102,7 +102,7 @@ require_once CONTROLLER_PATH . '/CvController.php';
                                 <div class="input-group">
                                     <span class="input-group-text">🛠️</span>
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="skills" placeholder="Compétences">
+                                        <input type="text" class="form-control" id="skills" name="skills" placeholder="Compétences">
                                         <label for="skills">Compétences</label>
                                     </div>
                                 </div>

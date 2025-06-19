@@ -136,4 +136,40 @@ class UserModel
 
         return $this->birth->diff(new DateTimeImmutable())->y;
     }
+    public function setFirstName(string $firstName): void
+    {
+        $this->firstName = ucfirst($firstName);
+    }
+    public function setName(string $name): void
+    {
+        $this->name = strtoupper($name);
+    }
+    public function setRegion(?string $region): void
+    {
+        $this->region = $region;
+    }
+    public function setCity(string $city): void
+    {
+        $this->city = ucfirst($city);
+    }
+    public function setJob(?string $job): void
+    {
+        $this->job = $job;
+    }
+    public function setCellphone(?string $cellphone): void
+    {
+        $this->cellphone = $cellphone;
+    }
+    public function setEmail(string $email): void
+    {
+        $this->email = $email;
+    }
+    public function setSkills(array $skills): void
+    {
+        $this->skills = $skills;
+    }
+    public function setBirth(DateTimeImmutable $birth): void
+    {
+        $this->birth = $birth;
+    }
 }

@@ -1,33 +1,38 @@
 <?php
-
 require_once MODEL_PATH . '/MakeUserModel.php';
-class MakeUserController
-{
-    public function create()
-    {
-        //Récupération et validation des données POST
-        $name = $_POST['name'] ?? '';
-        $firstName = $_POST['firstName'] ?? '';
-        $region = $_POST['region'] ?? null;
-        $city = $_POST['city'] ?? null;
-        $job = $_POST['job'] ?? null;
-        $birth = !empty($_POST['birth']) ? new DateTimeImmutable($_POST['birth']) : null;
-        $cellphone = $_POST['cellphone'] ?? null;
-        $skills = !empty($_POST['skills']) ? explode(',', $_POST['skills']) : [];
-        $email = $_POST['email'] ?? '';
+require_once SERVICE_PATH . '/DatabaseService.php';
 
-        //Création du modèle
-        $user = new MakeUserModel(
-            //id,
-            $name,
-            $firstName,
-            $region,
-            $city,
-            $job,
-            $birth,
-            $cellphone,
-            $skills,
-            $email
-        );
+class CvRepository
+{
+    private array $userList = [];
+
+    public function __construct(/*string $source = 'array'*/)
+    {
+        $this->insert();
     }
+
+    private function insert(UserModel $user): void
+{
+    $config = require CONFIG_PATH . '/parameters.php';
+    $pdo = Database::connectWithDB($config);
+
+    $stmt = $pdo->query(
+    'INSERT INTO users (name, first_name, region, city, job, birth, cellphone, skills, email)
+    VALUES (":name", ":first_name", ":region", ":city", ":job", ":birth", ":cellphone", ":skills", ":email")');
+    $stmt->execute([
+        'name' => $user->getName(),
+        'first_name' => $user->getFirstName(),
+        'region' => $user->getRegion(),
+        'city' => $user->getCity(),
+        'job' => $user->getJob(),
+        'birth' => $user->getBirthDay(),
+        'cellphone' => $user->getCellphone(),
+        'skills' => json_encode($user->getSkills()), // je ne sais plus si c'est un array
+        'email' => $user->getEmail(),
+    ]
+    );
+
 }
+
+}
+

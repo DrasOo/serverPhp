@@ -16,7 +16,7 @@
         <section class="container text-center">
             <div class="row">
                 <div class="col-12">
-                    <a href="/?route=make" class="btn btn-primary m-3 p-2">Créer un nouveau CV</a>
+                    <a href="/?route=new" class="btn btn-primary m-3 p-2">Créer un nouveau CV</a>
                 </div>
             </div>
     </div>

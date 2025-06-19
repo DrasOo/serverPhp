@@ -7,7 +7,7 @@
         <li class="nav-item"><a class="nav-link" href="?route=index">Index</a></li>
         <li class="nav-item"><a class="nav-link" href="?route=show">Show</a></li>
         <li class="nav-item"><a class="nav-link" href="?route=edit">Edit</a></li>
-        <li class="nav-item"><a class="nav-link" href="?route=make">Make</a></li>
+        <li class="nav-item"><a class="nav-link" href="?route=new">Make</a></li>
       </ul>
     </nav> 
   </div>

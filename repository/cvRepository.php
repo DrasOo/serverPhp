@@ -37,7 +37,7 @@ class CvRepository
     {
         if (!file_exists($filePath)) return;
 
-        // 🧠 Inclut le fichier PHP et récupère le tableau $users défini dedans
+        //Inclut le fichier PHP et récupère le tableau $users défini dedans
         $data = include $filePath;
 
         if (is_array($data)) {

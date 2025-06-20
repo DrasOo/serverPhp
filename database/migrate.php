@@ -1,5 +1,5 @@
 <?php
-require_once 'bootstrap.php';
+require_once '../bootstrap.php';
 require_once SERVICE_PATH . '/DatabaseService.php';
 
 $dbConfig = $config['db'] ?? $config;

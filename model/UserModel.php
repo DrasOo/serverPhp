@@ -39,16 +39,16 @@ class UserModel
     public function toArray(): array
     {
         return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'first_name' => $this->firstName,
-            'region' => $this->region,
-            'city' => $this->city,
-            'job' => $this->job,
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'first_name' => $this->getFirstName(),
+            'region' => $this->getRegion(),
+            'city' => $this->getCity(),
+            'job' => $this->getJob(),
             'birth' => $this->getBirthDay(),
-            'cellphone' => $this->cellphone,
-            'skills' => $this->skills,
-            'email' => $this->email,
+            'cellphone' => $this->getCellphone(),
+            'skills' => $this->getSkills(),
+            'email' => $this->getEmail(),
         ];
     }
     public static function fromArray(array $data): self

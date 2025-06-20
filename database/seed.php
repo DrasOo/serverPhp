@@ -1,17 +1,14 @@
 <?php
-require_once 'bootstrap.php';
+require_once '../bootstrap.php';
 require_once SERVICE_PATH . '/DatabaseService.php';
 require_once CONFIG_PATH . '/parameters.php';
 require_once SEEDER_PATH . '/UserSeeder.php';
 
-$config = require CONFIG_PATH . '/parameters.php';
+$dbConfig = $config['db'] ?? $config;
 
 try {
     // Connexion à la base de données
-    $pdo = Database::connectWithDB($config);
-    
-    $dbConfig = $config['db'] ?? $config;
-    
+    $pdo = Database::connectWithDB($config);    
     // Sélection de la base de données
     $pdo->exec("USE `{$dbConfig['dbname']}`");
     
